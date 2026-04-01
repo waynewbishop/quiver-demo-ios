@@ -1,10 +1,9 @@
-# quiver-demo-ios
+# Quiver Demo for iOS
 
 Personal finance apps show totals and categories, but they rarely reveal
 what changed and why. Which days broke the pattern? How are spending
 habits shifting week to week? Answering these questions requires outlier
-detection, percentage normalization, and downsampling — operations that
-don't exist in standard Swift.
+detection, percentage normalization, and downsampling.
 
 This demo uses [Quiver](https://github.com/waynewbishop/quiver) to build
 a spending dashboard entirely on-device. `groupedData(by:using: .percentage)`
