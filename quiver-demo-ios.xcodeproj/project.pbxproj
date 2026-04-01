@@ -6,14 +6,18 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DA8462752F68D8310061454C /* Quiver in Frameworks */ = {isa = PBXBuildFile; productRef = DA8462742F68D8310061454C /* Quiver */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
-		DA8462422F68D6F80061454C /* quiver-charts-validation-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "quiver-charts-validation-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA8462422F68D6F80061454C /* quiver-demo-ios-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "quiver-demo-ios-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		DA8462442F68D6F80061454C /* quiver-charts-validation-app */ = {
+		DA8462442F68D6F80061454C /* quiver-demo-ios */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "quiver-charts-validation-app";
+			path = "quiver-demo-ios";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA8462752F68D8310061454C /* Quiver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,7 +37,7 @@
 		DA8462392F68D6F80061454C = {
 			isa = PBXGroup;
 			children = (
-				DA8462442F68D6F80061454C /* quiver-charts-validation-app */,
+				DA8462442F68D6F80061454C /* quiver-demo-ios */,
 				DA8462432F68D6F80061454C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -40,7 +45,7 @@
 		DA8462432F68D6F80061454C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DA8462422F68D6F80061454C /* quiver-charts-validation-app.app */,
+				DA8462422F68D6F80061454C /* quiver-demo-ios-app.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,9 +53,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DA8462412F68D6F80061454C /* quiver-charts-validation-app */ = {
+		DA8462412F68D6F80061454C /* quiver-demo-ios-app */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DA84624D2F68D6FA0061454C /* Build configuration list for PBXNativeTarget "quiver-charts-validation-app" */;
+			buildConfigurationList = DA84624D2F68D6FA0061454C /* Build configuration list for PBXNativeTarget "quiver-demo-ios-app" */;
 			buildPhases = (
 				DA84623E2F68D6F80061454C /* Sources */,
 				DA84623F2F68D6F80061454C /* Frameworks */,
@@ -61,13 +66,14 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				DA8462442F68D6F80061454C /* quiver-charts-validation-app */,
+				DA8462442F68D6F80061454C /* quiver-demo-ios */,
 			);
-			name = "quiver-charts-validation-app";
+			name = "quiver-demo-ios-app";
 			packageProductDependencies = (
+				DA8462742F68D8310061454C /* Quiver */,
 			);
 			productName = "quiver-charts-validation-app";
-			productReference = DA8462422F68D6F80061454C /* quiver-charts-validation-app.app */;
+			productReference = DA8462422F68D6F80061454C /* quiver-demo-ios-app.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +91,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DA84623D2F68D6F80061454C /* Build configuration list for PBXProject "quiver-charts-validation-app" */;
+			buildConfigurationList = DA84623D2F68D6F80061454C /* Build configuration list for PBXProject "quiver-demo-ios" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -94,12 +100,15 @@
 			);
 			mainGroup = DA8462392F68D6F80061454C;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				DA8462732F68D8310061454C /* XCRemoteSwiftPackageReference "quiver" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DA8462432F68D6F80061454C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DA8462412F68D6F80061454C /* quiver-charts-validation-app */,
+				DA8462412F68D6F80061454C /* quiver-demo-ios-app */,
 			);
 		};
 /* End PBXProject section */
@@ -263,7 +272,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arbutusinc.quiver-charts-validation-app";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arbutusinc.quiver-demo-ios-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -294,7 +303,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arbutusinc.quiver-charts-validation-app";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arbutusinc.quiver-demo-ios-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -309,7 +318,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DA84623D2F68D6F80061454C /* Build configuration list for PBXProject "quiver-charts-validation-app" */ = {
+		DA84623D2F68D6F80061454C /* Build configuration list for PBXProject "quiver-demo-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DA84624B2F68D6FA0061454C /* Debug */,
@@ -318,7 +327,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DA84624D2F68D6FA0061454C /* Build configuration list for PBXNativeTarget "quiver-charts-validation-app" */ = {
+		DA84624D2F68D6FA0061454C /* Build configuration list for PBXNativeTarget "quiver-demo-ios-app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DA84624E2F68D6FA0061454C /* Debug */,
@@ -328,6 +337,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DA8462732F68D8310061454C /* XCRemoteSwiftPackageReference "quiver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/waynewbishop/quiver";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DA8462742F68D8310061454C /* Quiver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DA8462732F68D8310061454C /* XCRemoteSwiftPackageReference "quiver" */;
+			productName = Quiver;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DA84623A2F68D6F80061454C /* Project object */;
 }
