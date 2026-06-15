@@ -1,6 +1,7 @@
 import SwiftUI
 import Charts
 import Quiver
+import UIKit
 
 struct ContentView: View {
     var model = FinanceModel()
@@ -9,14 +10,30 @@ struct ContentView: View {
     let coral = Color(red: 1.0, green: 0.42, blue: 0.42)
     let accentGreen = Color(red: 0.31, green: 0.80, blue: 0.77)
 
+    private var isIPad: Bool {
+        UIDevice.current.userInterfaceIdiom == .pad
+    }
+
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 24) {
                     thisMonthHeader
-                    whereItGoesChart
-                    weeklyBreakdownChart
-                    unusualDaysChart
+
+                    if isIPad {
+                        LazyVGrid(
+                            columns: [GridItem(.flexible()), GridItem(.flexible())],
+                            spacing: 16
+                        ) {
+                            whereItGoesChart
+                            weeklyBreakdownChart
+                        }
+                        unusualDaysChart
+                    } else {
+                        whereItGoesChart
+                        weeklyBreakdownChart
+                        unusualDaysChart
+                    }
                 }
                 .padding()
             }
@@ -30,6 +47,8 @@ struct ContentView: View {
         HStack(spacing: 16) {
             statCard("Total", value: String(format: "$%.0f", model.totalSpending))
             statCard("Daily Avg", value: String(format: "$%.0f", model.dailyAverage))
+            statCard("Daily Spread",
+                     value: String(format: "±$%.0f", model.dailyStd))
             let change = model.monthOverMonthChange
             statCard("vs Last Month", value: String(format: "%+.1f%%", change * 100),
                      color: change >= 0 ? coral : accentGreen)
@@ -56,7 +75,7 @@ struct ContentView: View {
                         .foregroundStyle(by: .value("Category", item.category))
                 }
             }
-            .frame(height: 220)
+            .frame(height: isIPad ? 440 : 220)
         }
     }
 
@@ -72,7 +91,7 @@ struct ContentView: View {
                         .foregroundStyle(skyBlue)
                 }
             }
-            .frame(height: 200)
+            .frame(height: isIPad ? 440 : 200)
         }
     }
 
@@ -81,7 +100,10 @@ struct ContentView: View {
     private var unusualDaysChart: some View {
         VStack(alignment: .leading) {
             sectionHeader("Unusual Days",
-                subtitle: "Quiver's outlierMask flags days that deviate significantly from the mean using z-score analysis — no statistics code required.")
+                subtitle: String(format: "Quiver's outlierMask flags days where |value − mean| / std exceeds 1.5. With mean $%.0f and std $%.0f, the cutoff sits near $%.0f.",
+                                 model.dailyAverage,
+                                 model.dailyStd,
+                                 model.dailyAverage + 1.5 * model.dailyStd))
             let flags = model.outlierFlags
             Chart {
                 ForEach(Array(model.dailySpending.enumerated()), id: \.offset) { day, amount in
@@ -97,7 +119,7 @@ struct ContentView: View {
                         }
                 }
             }
-            .frame(height: 200)
+            .frame(height: isIPad ? 360 : 200)
         }
     }
 

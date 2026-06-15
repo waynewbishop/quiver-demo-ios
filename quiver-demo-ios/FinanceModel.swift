@@ -58,6 +58,12 @@ class FinanceModel {
     var totalSpending: Double { dailySpending.sum() }
     var dailyAverage: Double { dailySpending.mean() ?? 0.0 }
 
+    // standardDeviation() reveals the spread that drives the outlier
+    // threshold; standardError() expresses how confident we are in the
+    // monthly mean given a 30-day sample.
+    var dailyStd: Double { dailySpending.standardDeviation() ?? 0.0 }
+    var dailyStandardError: Double { dailySpending.standardError() ?? 0.0 }
+
     // percentChange(lag:) computes the relative change between two
     // values in one call — no manual (new - old) / old arithmetic
     var monthOverMonthChange: Double {

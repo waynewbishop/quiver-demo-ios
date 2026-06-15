@@ -20,8 +20,11 @@ no third-party analytics SDK.
 
 ## Screens
 
-**This Month** — Total spend, daily average, and month-over-month
-percentage change computed with `sum()`, `mean()`, and `percentChange(lag:)`.
+**This Month** — Total spend, daily average, daily spread, and
+month-over-month percentage change computed with `sum()`, `mean()`,
+`standardDeviation()`, and `percentChange(lag:)`. Every headline
+number shows up with the spread next to it — the daily mean alone
+hides whether spending is steady or volatile.
 
 **Where It Goes** — Donut chart of spending by category, powered by
 `groupedData(by:using: .percentage)` — one call aggregates and normalizes.
@@ -30,11 +33,15 @@ percentage change computed with `sum()`, `mean()`, and `percentChange(lag:)`.
 `downsample(factor:using:)` — one call chunks 30 days into 5 weeks.
 
 **Unusual Days** — Scatter chart highlighting outlier spending days
-detected by `outlierMask()` with dollar annotations on each flagged day.
+detected by `outlierMask()` with dollar annotations on each flagged
+day. The subtitle shows the live derivation — mean, standard
+deviation, and the actual dollar cutoff — so the 1.5-threshold
+becomes a visible computation rather than a black box.
 
 ## Quiver APIs used
 
 - `sum()` / `mean()` — monthly total and daily average
+- `standardDeviation()` / `standardError()` — daily spread and confidence in the mean
 - `percentChange(lag:)` — month-over-month spending change
 - `groupedData(by:using: .percentage)` — category shares normalized to 100%
 - `downsample(factor:using:)` — chunk daily data into weekly summaries
